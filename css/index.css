@@ -37,13 +37,23 @@ body {
 }
 .tab{
 	background: #1B4B77;
-	text-align:center;
-	font-size:11px;
+	text-align: center;
+	margin: auto 0;
+	padding: 0;
+	display: inline-block;
+	font-size: 10px;
+	color: white;
+	
 }
 .footer {
   position: absolute;
+  colour:white;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
+}
+
+p {
+	align-content:center;
 }
