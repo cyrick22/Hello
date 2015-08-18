@@ -1,2 +1,0 @@
-# Hello
-Educational Purpose only
