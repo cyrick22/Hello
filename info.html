@@ -9,12 +9,24 @@
         <link rel="stylesheet" type="text/css" href="css/animate.css" />
  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-        <script src="js/browser.js" type="text/javascript"></script>
-        <script type="text/javascript">if ('addEventListener' in document) {
-					document.addEventListener('DOMContentLoaded', function() {
-						FastClick.attach(document.body);
-					}, false);
-				}</script>
+        <script type="text/javascript" charset="utf-8">
+    // Wait for deviceReady
+    document.addEventListener("deviceready", onDeviceReady, false);
+    // Global InAppBrowser reference
+    var iabRef = null;
+    function iabLoadStart(event) {
+        alert(event.type + ' - ' + event.url);
+    }
+    function iabLoadStop(event) {
+        alert(event.type + ' - ' + event.url);
+    }
+    function iabClose(event) {
+         alert(event.type);
+         iabRef.removeEventListener('loadstart', iabLoadStart);
+         iabRef.removeEventListener('loadstop', iabLoadStop);
+         iabRef.removeEventListener('exit', iabClose);
+    }</script>
+    
         <title>Evocca College Parramatta</title>
     </head>
     <body>
@@ -33,26 +45,26 @@
             
            
                                     
-          <div class="header">
+          <div class="header event received">
           <div class="container">
-          <div class="row">
-            <div class="tab col-sm-3 col-xs-3 btn btn-primary button_sliding_bg" button type="button"><a href="branch.html" class="click"><img src="img/contactPhone.png" alt="contactIcon"></a>
+          <div class="btn-group btn-group-justified">
+            <div class="tab btn btn-primary button_sliding_bg" button type="button"><a href="branch.html" class="click"><img src="img/contactPhone.png" alt="contactIcon"></a>
             		<h6>Branch</h6>
                     </div>
-                    <div class="tab col-sm-3 col-xs-3 btn btn-primary button_sliding_bg" button type="button"><a href="info.html" class="click"><img src="img/info.png" alt="informationIcon"></a>
+                    <div class="tab btn btn-primary button_sliding_bg" button type="button"><a href="info.html" class="click"><img src="img/info.png" alt="informationIcon"></a>
                         <h6>Courses</h6>
                         </div>
-                             <div class="tab col-sm-3 col-xs-3 btn btn-primary button_sliding_bg" button type="button"><a href="" onClick="javascript:appBrowse('https://my.evocca.edu.au/login/index.php')" class="click"><img src="img/link.png" alt="websiteIcon"></a>
+                             <div class="tab btn btn-primary button_sliding_bg" button type="button"><a href="#" onclick="window.open('http://www.evocca.edu.au','_blank','location=no')" class="click"><img src="img/link.png" alt="websiteIcon"></a>
                                 <h6>Website</h6>
                                 </div>
-                                <div class="tab col-sm-3 col-xs-3 btn btn-primary button_sliding_bg" button type="button"><a href="#" class="click"><img src="img/cameraEnhance.png" alt="camera-loginIcon" ></a>
+                                <div class="tab btn btn-primary button_sliding_bg" button type="button"><a href="#" class="click"><img src="img/cameraEnhance.png" alt="camera-loginIcon" ></a>
                                     <h6>Login</h6>
                                     </div>
                                     
 				</div>
  				</div> 
 				</div>
-
+                
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script src="//code.jquery.com/jquery-2.1.4.min.js"></script> 
@@ -60,5 +72,5 @@
         <script type="text/javascript">
             app.initialize();
         </script>
-    </body>
+        </body>
 </html>
