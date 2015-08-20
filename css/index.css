@@ -65,6 +65,7 @@ p {
 .heading {
 	color: white;	
 	font-weight:thin;
+	font-size:15px;
 }
 
 .line-separator{
@@ -103,6 +104,11 @@ p {
 .btn-group-justified {
 	padding-right:-5px;
 	padding-left:5px;
+	
+	}
+.btn-primary{
+	font-size:20px;
+	width:40px;
 	}
 .course {
 	text-align:center;
@@ -133,7 +139,7 @@ p {
 	
 #learning {
 		width:270px;
-		height:7px;
+		height:42px;
 		font-size:16px;
 	}
 
