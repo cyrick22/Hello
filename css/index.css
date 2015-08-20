@@ -9,12 +9,13 @@ body {
 	-webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
 	-webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
 	-webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
 	background-image: url(../img/background.png);
 	background-attachment: fixed;
 	margin-bottom: 60px;
 	position:absolute;
 	font-family: "Roboto Light", "Roboto Thin", "Roboto Medium", "Roboto Regular";
-	font-size: 12px;
+	font-size: 13px;
 	color: white;
 	height: 100%;
 	padding: 0px;
@@ -40,7 +41,7 @@ body {
 	margin: auto 0;
 	padding: 0;
 	display: inline-block;
-	font-size: 12px;
+	font-size: 13px;
 	color: white;
 	
 }
@@ -89,7 +90,7 @@ p {
 	height:3px;
 	background:#10A8B0;
 	border-bottom:1px solid #313030;
-	margin-top:300px;
+	margin-top:30px;
 	margin-bottom:20px;
 }
 .btn-group-vertical > a{
@@ -123,12 +124,14 @@ p {
 }
 
 .cam{
-	text-align:center;
 	margin:0px;
     padding:0;
 	width: 270px;
-	height:auto;
-	position:absolute;
+	height:300px;
+	}
+	
+#learning {
+		width:250px;
 	}
 /* END Colour Boxes in course tab*/
 
