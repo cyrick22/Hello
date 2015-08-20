@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="animate.min.css">
  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-        <script type="text/javascript" src="js/scanner.js"></script>
+        
         <script type="text/javascript" charset="utf-8">
     // Wait for deviceReady
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -27,23 +27,15 @@
          iabRef.removeEventListener('loadstop', iabLoadStop);
          iabRef.removeEventListener('exit', iabClose);
     }
-			cordova.plugins.barcodeScanner.scan(
-				  function (result) {
-					  alert("We got a barcode\n" +
-							"Result: " + result.text + "\n" +
-							"Format: " + result.format + "\n" +
-							"Cancelled: " + result.cancelled);
-				  }, 
-				  function (error) {
-					  alert("Scanning failed: " + error);
-				  }
-			   );
+			
 </script>
         <title>Evocca College Parramatta</title>
     </head>
     <body>
     <div class="container text-center">
-	  <div class="btn button_sliding_bg click" type="button" value="scan" onclick="cordova.plugins.barcodeScanner.scan()"><img src="img/cam_03.png" alt="camera icon" class="cam">
+	  <div class="btn button_sliding_bg">
+      <button type="button" onclick="cordova.plugins.barcodeScanner.scan()" class="click">
+      <img src="img/cam_03.png" alt="camera icon" class="cam"></button>
       </div>
       
       <!--seperator--><div id="login-separator"></div>
@@ -73,7 +65,7 @@
  				</div> 
 				</div>
               
-        
+        <script type="text/javascript" src="js/scanner.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script src="//code.jquery.com/jquery-2.1.4.min.js"></script> 
