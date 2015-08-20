@@ -43,6 +43,8 @@
     -->
 
     <!-- Plugins -->
+    <gap:plugin name="com.phonegap.plugins.barcodescanner" version="2.0.0" />
+    <author> wildabeast </author>
  
     <!-- Core plugins -->
     <gap:plugin name="org.apache.cordova.battery-status" />
