@@ -13,10 +13,6 @@
         <script type="text/javascript" charset="utf-8">
     // Wait for deviceReady
     document.addEventListener("deviceready", onDeviceReady, false);
-	
-	scanButton = document.getElementById("scan-button");
-
-}
     // Global InAppBrowser reference
     var iabRef = null;
     function iabLoadStart(event) {
@@ -31,34 +27,24 @@
          iabRef.removeEventListener('loadstop', iabLoadStop);
          iabRef.removeEventListener('exit', iabClose);
     }
-	
-	
-
-			cordova.plugins.barcodeScanner.scan(
-      function (result) {
-          alert("We got a barcode\n" +
-                "Result: " + result.text + "\n" +
-                "Format: " + result.format + "\n" +
-                "Cancelled: " + result.cancelled);
-      }, 
-      function (error) {
-          alert("Scanning failed: " + error);
-      }
-   );
-   
-   
-</script>
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+         Alert('Its College. <br>
+				Your way!');
+    }
+    </script>
         <title>Evocca College Parramatta</title>
     </head>
     <body>
     <div class="container text-center">
-	  <!-- <div class="btn button_sliding_bg">
-      <button type="button" onclick="cordova.plugins.barcodeScanner.scan();" class="click" id="scan-button">Scan
-       <img src="img/cam_03.png" alt="camera icon" class="cam">  
+	<div class="btn button_sliding_bg">
+      <button type="button" class="click"><a href="scan.html">
+       <img src="img/cam_03.png" alt="camera icon" class="cam">  </a>
       </button> 
-      </div>-->
-      <p><a href="#" class="topcoat-button" id="scan">SCAN</a></p>
-            <p><a href="#" class="topcoat-button" id="encode">ENCODE</a></p>
+      </div>
+    
+            
             
       <!--seperator--><div id="login-separator"></div>
       
@@ -87,7 +73,7 @@
  				</div> 
 				</div>
               
-        <script type="text/javascript" src="barcodescanner.js"></script>
+     
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script src="//code.jquery.com/jquery-2.1.4.min.js"></script> 
