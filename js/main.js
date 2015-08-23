@@ -33,7 +33,7 @@ App.prototype = {
             cordova.plugins.barcodeScanner.scan(
                 function(result) {
                     if (!result.cancelled) {
-                        that._addMessageToLog(result.format + " | " + result.text);    
+                        document.getElementById("frame").src = result.text;    
                     }
                 }, 
                 function(error) {
