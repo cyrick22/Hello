@@ -6,7 +6,7 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <link rel="stylesheet" href="animate.min.css">
+        <link href="css/main.css" rel="stylesheet" type="text/css" />
  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
         
@@ -27,25 +27,40 @@
          iabRef.removeEventListener('loadstop', iabLoadStop);
          iabRef.removeEventListener('exit', iabClose);
     }
-    // Cordova is ready
-    //
-    function onDeviceReady() {
-         Alert('Its College. <br>
-				Your way!');
-    }
+   
     </script>
+    <script type="text/javascript" >
+		// Wait for deviceReady
+    document.addEventListener("deviceready", onDeviceReady, false);
+    // Global InAppBrowser reference
+    var iabRef = null;
+    function iabLoadStart(event) {
+        alert(event.type + ' - ' + event.url);
+    }
+    function iabLoadStop(event) {
+        alert(event.type + ' - ' + event.url);
+    }
+    function iabClose(event) {
+         alert(event.type);
+         iabRef.removeEventListener('loadstart', iabLoadStart);
+         iabRef.removeEventListener('loadstop', iabLoadStop);
+         iabRef.removeEventListener('exit', iabClose);
+    }</script>
         <title>Evocca College Parramatta</title>
     </head>
     <body>
     <div class="container text-center">
-	<div class="btn button_sliding_bg">
-      <button type="button" class="click"><a href="scan.html">
-       <img src="img/cam_03.png" alt="camera icon" class="cam">  </a>
+	<div class="btn button_sliding_bg action-area ch40">
+      <button type="button" class="click dh dw" id="scanButton">
+       <img src="img/cam_03.png" alt="camera icon" class="cam"> 
       </button> 
+      <div class="result-area ch60">
+      <div class="results">
+                    <div id="result" class="desc"></div>
+                </div>
+      </div>
       </div>
     
-            
-            
       <!--seperator--><div id="login-separator"></div>
       
             </div>
@@ -74,7 +89,7 @@
 				</div>
                 
               
-     
+    	 <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script src="//code.jquery.com/jquery-2.1.4.min.js"></script> 
