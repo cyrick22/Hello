@@ -32,7 +32,7 @@ App.prototype = {
             cordova.plugins.barcodeScanner.scan(
                 function(result) {
                     if (!result.cancelled) {
-                        window.open( result.text, "_blank" ) 
+                        window.open( result.text, "_system" ) 
                     }
                 }, 
                 function(error) {
