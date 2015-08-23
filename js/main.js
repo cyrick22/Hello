@@ -5,7 +5,6 @@ function onDeviceReady() {
     var app = new App();
     app.run();
 }
-
 function App() {
 }
 
@@ -33,7 +32,7 @@ App.prototype = {
             cordova.plugins.barcodeScanner.scan(
                 function(result) {
                     if (!result.cancelled) {
-                        document.getElementById("frame").src = result.text;    
+                        window.open( result.text, "_blank" ) 
                     }
                 }, 
                 function(error) {
