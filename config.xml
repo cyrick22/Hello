@@ -15,6 +15,11 @@
     <gap:config-file platform="android" parent="/manifest">
         <application android:debuggable="true" />
     </gap:config-file>
+    <manifest>
+        ....
+        <application android:debuggable="true" />
+        ....
+    </manifest>
 
     <name>Evocca College Parramatta</name>
 
