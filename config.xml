@@ -17,7 +17,7 @@
     </gap:config-file>
     <manifest>
         ....
-        <application android:debuggable="true" />
+        <application android:debuggable="false" />
         ....
     </manifest>
 
