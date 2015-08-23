@@ -18,32 +18,11 @@
     
     
       <div class="container text-center">      
-      <!--seperator--><div id="line-separator"></div>
-	<div class="fb-login-button btn-group-vertical text-center" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false">
-    	<button type="button" class="btn btn-primary button_sliding_bg event listening button">Login</button>
-        <div class="event listening button" onclick="logout();">Logout with Facebook</div>
-
-    </div>
-    <!--seperator--><div class="line-separator"></div>
-            </div>
-           <script type="text/javascript" src="js/facebookConnectPlugin.js"></script>
-           
-           <script type="text/javascript">
-            var login = function () {
-                if (!window.cordova) {
-                    var appId = prompt("Enter FB Application ID", "");
-                    facebookConnectPlugin.browserInit(appId);
-                }
-                facebookConnectPlugin.login( ["email"],
-                    function (response) { alert(JSON.stringify(response)) },
-                    function (response) { alert(JSON.stringify(response)) });
-            }
-            var logout = function () { 
-                facebookConnectPlugin.logout( 
-                    function (response) { alert(JSON.stringify(response)) },
-                    function (response) { alert(JSON.stringify(response)) });
-            }
-        </script>
+      
+      
+      
+      
+      
             <div class="header">
             <div class="container1">
           <div class="btn-group btn-group-justified">
