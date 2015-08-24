@@ -9,7 +9,69 @@
         <link href="css/main.css" rel="stylesheet" type="text/css" />
  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-        
+        <script src="https://app.userapp.io/js/userapp.client.js"></script>
+       <script type="text/javascript"> UserApp.initialize({ appId: "55da5dff38458" });</script>
+       <script type="text/javascript">
+				  UserApp.User.save({
+				"first_name": "Timothy",
+				"email": "timothy.johansson@userapp.io",
+				"login": "timothy",
+				"password": "v3rYsecre7!",
+				"properties": {
+					"age": {
+						"value": 24,
+						"override": true
+					}
+				},
+				"subscription": {
+					"price_list_id": "qcRTCZiKajkbl-kNATL1vk",
+					"plan_id": "j5V9j7jBdJuCEMkBXseLfm",
+					"override": false
+				}
+			}, function(error, result){
+				// Handle error/result
+			});
+			
+			UserApp.User.login({ "login": "timothy", "password": "v3rYsecre7!" }, function(error, result) {
+				if (error) {
+					// Something went wrong...
+					// Check error.name. Might just be a wrong password?
+				} else if (result.locks && result.locks.length > 0) {
+					// This user is locked
+				} else {
+					// User is logged in, save result.token in a cookie called 'ua_session_token'
+				}
+			});
+			UserApp.User.logout(function(error, result){
+				// Clear cookie, redirect to login page, etc.
+			});
+			UserApp.User.get({ user_id: "self" }, function(error, user) {
+				if (error) {
+					// User not logged in
+				} else {
+					// Success, the profile is at user[0]
+				}
+			});
+			// Check if there is a session cookie
+			var token = Cookies.get("ua_session_token");
+			if (token) {
+				// Yes, there is
+				UserApp.setToken(token);
+			
+				// Get the logged in user
+				UserApp.User.get({ user_id: "self" }, function(error, user) {
+					if (error) {
+						// The token has probably expired, go to the login page
+						window.location.href = "login.html";
+					} else {
+						// Success, the profile is at user[0]
+					}
+				});
+			} else {
+				// No, redirect the user to the login page
+				window.location.href = "login.html";
+			}</script>
+
         <script type="text/javascript" charset="utf-8">
     // Wait for deviceReady
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -29,23 +91,7 @@
     }
    
     </script>
-    <script type="text/javascript" >
-		// Wait for deviceReady
-    document.addEventListener("deviceready", onDeviceReady, false);
-    // Global InAppBrowser reference
-    var iabRef = null;
-    function iabLoadStart(event) {
-        alert(event.type + ' - ' + event.url);
-    }
-    function iabLoadStop(event) {
-        alert(event.type + ' - ' + event.url);
-    }
-    function iabClose(event) {
-         alert(event.type);
-         iabRef.removeEventListener('loadstart', iabLoadStart);
-         iabRef.removeEventListener('loadstop', iabLoadStop);
-         iabRef.removeEventListener('exit', iabClose);
-    }</script>
+   
         <title>Evocca College Parramatta</title>
     </head>
     <body>
@@ -63,9 +109,12 @@
             
              <div class="container text-center">
              <div class="btn-group-vertical text-center">
-             <a href="#" onclick="window.open('https://my.evocca.edu.au/login/index.php','_blank','location=no')"  button type="button" class="btn btn-primary button_sliding_bg" id="learning">My Learning Spot</a>
+             <button class="btn btn-primary button_sliding_bg btn-group-lg" onclick="UserApp.User.logout()"  button type="button">Logout</button>
+             <button class="btn btn-primary button_sliding_bg btn-group-lg" onclick="window.open('https://my.evocca.edu.au/login/index.php','_blank','location=no')"  button type="button" id="learning">My Learning Spot</button>
+             
+           </div>
              </div>
-             </div>
+            
       <!--seperator--><div class="line-separator"></div>
       
             
@@ -77,7 +126,7 @@
                     </div>
                     <div class="tab btn btn-primary button_sliding_bg" button type="button"><a href="info.html" class="click"><img src="img/info.png" alt="informationIcon"></a>
                         <h6>Courses</h6>
-                        </div>
+</div>
                              <div class="tab btn btn-primary button_sliding_bg" button type="button"><a href="student.html" class="click"><img src="img/link.png" alt="websiteIcon"></a>
                                 <h6>Student <br/> Work</h6>
                                 </div>
