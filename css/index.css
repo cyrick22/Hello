@@ -64,6 +64,14 @@ body {
 	color: white;
 	
 }
+
+.copyright{}
+.copystyle {
+	color:white;
+	font-style:italic;
+	font-weight:lighter;
+	
+	}
 .header {
   position: absolute;
   colour:#1B4B77;
