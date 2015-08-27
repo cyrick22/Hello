@@ -7,18 +7,17 @@ body {
 	-webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
 	-webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
 	-webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-	-webkit-tap-highlight-color:rgba(0,0,0,0);
-	background-color:#22479F;
-}
-body{
+	background-image:url(../img/background.png);
+	overflow: auto;
 	margin-bottom: 75px;
 	font-family: "Roboto Light", "Roboto Thin", "Roboto Medium", "Roboto Regular";
 	font-size: 14px;
 	color: white;
-	min-height: 100%; 
+	min-height: 100%;
 	position: position;
 	padding: 0px;
 	width: 100%;
+
 }
 
  /*Portrait layout (default) */
