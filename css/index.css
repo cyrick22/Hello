@@ -120,7 +120,7 @@ p {
 	margin-bottom:20px;
 	
 }
-#login-separator {
+.login-separator {
 	height:3px;
 	background:#10A8B0;
 	border-bottom:1px solid #313030;
