@@ -10,28 +10,20 @@
  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
         <script src="https://app.userapp.io/js/userapp.client.js"></script>
-       <script type="text/javascript"> 
-			   // Check if there is a session cookie
-		var token = Cookies.get("ua_session_token");
-		if (token) {
-			// Yes, there is
-			UserApp.setToken(token);
-		
-			// Get the logged in user
-			UserApp.User.get({ user_id: "self" }, function(error, user) {
+       <script type="text/javascript">
+		 
+		UserApp.initialize({ appId: "55da5dff38458" });
+		// The user is logged in. Now get the user...
+			  // Check if there is a session cookie
+		function UserApp.User.get({ user_id: "self" }, function(error, user) {
 				if (error) {
-					// The token has probably expired, go to the login page
-					window.location.href = "login.html";
-				} else {
-					// Success, the profile is at user[0]
-				}
-			});
-		} else {
-			// No, redirect the user to the login page
-			window.location.href = "login.html";
-		}</script>
+				  alert("Error: " + error.message);
+				} 
+			  });
+        </script>
         
         <script type="text/javascript" charset="utf-8">
+		
     // Wait for deviceReady
     document.addEventListener("deviceready", onDeviceReady, false);
     // Global InAppBrowser reference
