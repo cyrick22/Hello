@@ -78,7 +78,7 @@ body {
   position: absolute;
   colour:#1B4B77;
   text-transform: uppercase;
-  bottom: 0;
+  bottom: 10;
   padding:10px;
   width: 100%;
   /* Set the fixed height of the footer here */

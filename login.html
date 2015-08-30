@@ -24,26 +24,21 @@
 			  alert("Error: " + error.message);
 			} else {
 			  // The user is logged in. Now get the user...
-			  // Check if there is a session cookie
-	
-				var token = Cookies.get("g39l957iSLSZ6GjBH1XJeQ");
-				if (token) {
-					// Yes, there is
-					UserApp.setToken(token);
-				
-					// Get the logged in user
-					UserApp.User.get({ user_id: "self" }, function(error, user) {
-						if (error) {
-							// The token has probably expired, go to the login page
-							window.location.href = "login.html";
-						} else {
-							// Success, the profile is at user[0]
-						}
-					});
-				} else {
-					// No, redirect the user to the login page
-					window.location.href = "login.html";
-				}</script>
+					 UserApp.User.get({
+					user_id: "self"
+				  }, function(error, user) {
+					if (error) {
+					  alert("Error: " + error.message);
+					} else {
+					  alert("Welcome back, " + user[0].first_name + "!");
+					  window.location.href = "scan.html";
+					}
+				  });
+				}
+			  });
+			
+			  return false;
+			}</script>
 
 
         <title>Evocca College Parramatta</title>
