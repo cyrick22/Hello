@@ -15,6 +15,7 @@
 		UserApp.initialize({ appId: "55da5dff38458" });
 		
 		function login() {
+			
 		  UserApp.User.login({
 			login: document.getElementById("username").value,
 			password: document.getElementById("password").value
@@ -29,7 +30,7 @@
 				  alert("Error: " + error.message);
 				} else {
 				  alert("Welcome back, " + user[0].first_name + "!");
-				  window.open('scan.html','_blank','location=no');
+				  window.location('scan.html'); 
 				}
 			  });
 			}
