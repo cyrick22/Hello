@@ -25,19 +25,25 @@
 			} else {
 			  // The user is logged in. Now get the user...
 			  // Check if there is a session cookie
-			  UserApp.User.get({ user_id: "self" }, function(error, user) {
-				if (error) {
-				  alert("Error: " + error.message);
+	
+				var token = Cookies.get("g39l957iSLSZ6GjBH1XJeQ");
+				if (token) {
+					// Yes, there is
+					UserApp.setToken(token);
+				
+					// Get the logged in user
+					UserApp.User.get({ user_id: "self" }, function(error, user) {
+						if (error) {
+							// The token has probably expired, go to the login page
+							window.location.href = "login.html";
+						} else {
+							// Success, the profile is at user[0]
+						}
+					});
 				} else {
-				  alert("Welcome back, " + user[0].first_name + "!");
-				  window.location('scan.html'); 
-				}
-			  });
-			}
-		  });
-		  
-		  return false;
-		}</script>
+					// No, redirect the user to the login page
+					window.location.href = "login.html";
+				}</script>
 
 
         <title>Evocca College Parramatta</title>
@@ -62,7 +68,7 @@
 		</form>
      		<!--seperator--><div class="line-separator"></div>
            </div>
-           
+           </div>
            
             <div class="header">
             <div class="container text-center">

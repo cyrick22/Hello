@@ -11,7 +11,28 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
         <script src="https://app.userapp.io/js/userapp.client.js"></script>
   		<script src="js/phonegap.userapp.js"></script>
-       
+          <script type="text/javascript" charset="utf-8">
+        // Check if there is a session cookie
+	
+				var token = Cookies.get("g39l957iSLSZ6GjBH1XJeQ");
+				if (token) {
+					// Yes, there is
+					UserApp.setToken(token);
+				
+					// Get the logged in user
+					UserApp.User.get({ user_id: "self" }, function(error, user) {
+						if (error) {
+							// The token has probably expired, go to the login page
+							window.location.href = "login.html";
+						} else {
+							// Success, the profile is at user[0]
+						}
+					});
+				} else {
+					// No, redirect the user to the login page
+					window.location.href = "login.html";
+				}</script>
+
         
         <script type="text/javascript" charset="utf-8">
 		
