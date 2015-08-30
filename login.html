@@ -9,7 +9,36 @@
         <link rel="stylesheet" href="animate.min.css">
  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-       
+      	 <script src="https://app.userapp.io/js/userapp.client.js"></script>
+         <script type="text/javascript">
+		 
+		UserApp.initialize({ appId: "55da5dff38458" });
+		
+		function login() {
+		  UserApp.User.login({
+			login: document.getElementById("username").value,
+			password: document.getElementById("password").value
+		  }, function(error, result) {
+			if (error) {
+			  alert("Error: " + error.message);
+			} else {
+			  // The user is logged in. Now get the user...
+			  // Check if there is a session cookie
+			  UserApp.User.get({ user_id: "self" }, function(error, user) {
+				if (error) {
+				  alert("Error: " + error.message);
+				} else {
+				  alert("Welcome back, " + user[0].first_name + "!");
+				  window.open('scan.html','_blank','location=no');
+				}
+			  });
+			}
+		  });
+		  
+		  return false;
+		}</script>
+
+
         <title>Evocca College Parramatta</title>
     </head>
     <body>
@@ -21,10 +50,15 @@
     
       <div class="container text-center">  
     	  <!--seperator--><div id="line-separator"></div>    
-    		  <div class="btn-group-vertical text-center">
-      					 <a href="scan.html" class="btn btn-primary button_sliding_bg btn-group-lg">Login</a>
-                         
-      </div>
+    		  	<div class="container">
+		<form class="form" onsubmit="return login()">
+			<h2 class="form-heading">Sign In</h2>
+			<div class="form-fields">
+				<input id="username" type="text" class="form-control" placeholder="Username" required autofocus>
+				<input id="password" type="password" class="form-control" placeholder="Password" required>
+			</div>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+		</form>
      		<!--seperator--><div class="line-separator"></div>
            </div>
            
@@ -38,7 +72,7 @@
                     <div class="tab1 btn btn-primary button_sliding_bg" button type="button"><a href="info.html" class="click"><img src="img/info.gif" class="buttonSize" alt="informationIcon"></a>
                         <h6>Courses</h6>
                         </div>
-                             <div class="tab1 btn btn-primary button_sliding_bg" button type="button"><a href="student.html" class="click"><img src="img/link.gif" class="buttonSize" alt="websiteIcon"></a>
+                             <div class="tab1 btn btn-primary button_sliding_bg" button type="button"><a href="student.html" class="click"><img src="img/gesture.gif" class="buttonSize" alt="websiteIcon"></a>
                                 <h6>Student <br/> Work</h6>
                                 </div>
                                 <div class="tab2 btn btn-primary button_sliding_bg" button type="button"><a href="login.html" class="click"><img src="img/cameraEnhance.gif" class="buttonSize" alt="camera-loginIcon" ></a>
